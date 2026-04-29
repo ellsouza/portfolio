@@ -80,6 +80,13 @@ body {
 
 .nav-links a:hover { color: var(--accent); }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 /* TIPOGRAFIA EDITORIAL */
 .slide-head { margin-bottom: 48px; }
 
@@ -205,6 +212,40 @@ h2 { font-size: 2.5rem; margin: 0; }
 
 .project-grid-two { grid-template-columns: 1fr 1fr; }
 
+.project-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-copy .project-button {
+  align-self: flex-start;
+  margin-bottom: 12px;
+}
+
+.project-facts {
+  margin: 14px 0 0;
+  padding-left: 0;
+  list-style: none;
+  color: var(--muted);
+}
+
+.project-facts li {
+  margin: 8px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.project-facts strong {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .project-card-wide {
   grid-column: span 2;
   display: grid;
@@ -262,6 +303,41 @@ h2 { font-size: 2.5rem; margin: 0; }
 }
 
 .stack-item:hover { background: var(--accent-light); }
+
+.stack-item > .project-facts {
+  grid-column: 1 / -1;
+  margin-top: 0;
+}
+
+.stack-item > .project-button {
+  grid-column: 2;
+  justify-self: flex-start;
+}
+
+.neuropost-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+}
+
+.neuropost-grid .preview-trigger {
+  aspect-ratio: 1 / 1;
+}
+
+.project-note {
+  margin: 16px 0 0;
+  color: var(--muted);
+}
+
+.project-note a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.project-note a:hover { text-decoration: underline; }
+
+/* (removido) stack-gallery: agora neuroposts usam o mesmo grid dos logos */
 
 /* BOTÕES */
 .button-secondary, .project-button {
@@ -450,8 +526,34 @@ h2 { font-size: 2.5rem; margin: 0; }
     padding: 18px; /* Target maior para o polegar */
   }
 
+  .project-facts li {
+    gap: 6px;
+  }
+
   .nav-links {
-    display: none; /* Idealmente aqui você usaria um menu hamburguer */
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 16px;
+  }
+
+  .nav-links::-webkit-scrollbar { display: none; }
+
+  .nav-links a {
+    margin-left: 0;
+    white-space: nowrap;
+    padding: 10px 0;
+  }
+
+  .topbar {
+    height: auto;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 0;
   }
 
   /* 5. Melhoria na Stack Institucional */
@@ -462,6 +564,13 @@ h2 { font-size: 2.5rem; margin: 0; }
   .stack-image {
     aspect-ratio: 16 / 9; /* Formato padrão de vídeo/docs para mobile */
   }
+
+  .stack-item > .project-button {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+  }
+
+  /* neuroposts usam .project-grid-two, que já vira 1 coluna aqui */
 
   /* 6. Tipografia e Títulos */
   h2 {
