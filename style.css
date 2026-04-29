@@ -212,16 +212,8 @@ h2 { font-size: 2.5rem; margin: 0; }
 
 .project-grid-two { grid-template-columns: 1fr 1fr; }
 
-/* Empilha as logos no layout "mobile/tablet" sem afetar desktop largo */
-@media (max-width: 1024px) {
-  #projetos-a .project-grid.project-grid-two {
-    grid-template-columns: 1fr !important;
-    grid-auto-flow: row;
-  }
-}
-
-/* Se o navegador estiver em "modo desktop" no celular, ainda assim empilha em dispositivos touch */
-@media (pointer: coarse) {
+/* Empilha as logos em telas menores e também em dispositivos touch/sem hover (mesmo em "modo desktop") */
+@media (max-width: 1024px), (pointer: coarse), (hover: none), (any-hover: none) {
   #projetos-a .project-grid.project-grid-two {
     grid-template-columns: 1fr !important;
     grid-auto-flow: row;
@@ -543,6 +535,11 @@ h2 { font-size: 2.5rem; margin: 0; }
 
   /* Garante que as 2 logos empilhem no mobile (evita qualquer override/caching estranho) */
   .project-grid.project-grid-two {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Alguns navegadores precisam de override direto na seção */
+  #projetos-a .project-grid.project-grid-two {
     grid-template-columns: 1fr !important;
   }
 
