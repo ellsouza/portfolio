@@ -255,6 +255,16 @@ h2 { font-size: 2.5rem; margin: 0; }
   padding-top: 40px;
 }
 
+.project-card-wide > .project-facts {
+  grid-column: 1 / -1;
+  margin-top: 0;
+}
+
+.project-card-wide > .project-button {
+  grid-column: 1 / -1;
+  justify-self: flex-start;
+}
+
 .preview-trigger {
   border: none;
   cursor: pointer;
