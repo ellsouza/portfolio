@@ -220,6 +220,14 @@ h2 { font-size: 2.5rem; margin: 0; }
   }
 }
 
+/* Se o navegador estiver em "modo desktop" no celular, ainda assim empilha em dispositivos touch */
+@media (pointer: coarse) {
+  #projetos-a .project-grid.project-grid-two {
+    grid-template-columns: 1fr !important;
+    grid-auto-flow: row;
+  }
+}
+
 .project-copy {
   display: flex;
   flex-direction: column;
